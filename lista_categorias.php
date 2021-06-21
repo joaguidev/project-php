@@ -1,7 +1,7 @@
 <?php
 require("includes/database.php");
 
-$con = Conectar();
+$con = Conexion();
 $result = $con->query("SELECT * FROM categoria");
 $con->close();
 

@@ -1,3 +1,112 @@
-.title {
-  font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background: #141e30;
+}
+.container {
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+.imagen {
+  width: 300px;
+  background: url(https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.login-form {
+  width: 300px;
+  background-color: #ecf0f1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+.header {
+  padding: 30px 0;
+  color: #2c3e50;
+}
+.login {
+  width: 230px;
+  margin: auto;
+}
+.input {
+  width: 100%;
+  border-radius: 5px;
+  background: white;
+  padding: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+.input input {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 5px;
+  color: #34495e;
+}
+button {
+  width: 100%;
+  background: #1abc9c;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button span {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.password-reset {
+  margin: 30px 0;
+}
+.password-reset a {
+  text-decoration: none;
+  color: #34495e;
+  font-size: 15px;
+}
+.input i {
+  color: #95a5a6;
+  font-size: 15px;
+}
+input::placeholder {
+  color: #7f8c8d;
+}
+button:hover {
+  transition: 0.5s ease-in-out;
+  box-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0.2);
+  background-color: #2ecc71;
+}
+a:hover {
+  color: #2980b9;
+}
+@media all and (max-width: 769px) {
+  .imagen {
+    width: 0;
+  }
+  .container {
+    width: 300px;
+  }
+  .login-form {
+    border-radius: 5px;
+  }
+}
+.message {
+  margin-top: 20px;
+  color: #2980b9;
+  font-size: 15px;
 }

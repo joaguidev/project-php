@@ -1,6 +1,6 @@
 <?php
 
-function Conectar()
+function Conexion()
 {
     $conex =  new mysqli("127.0.0.1", "root", "#123Abc456", "mysystemphp");
     if ($conex->connect_errno) {
