@@ -18,7 +18,7 @@
 <body>
     <form action="">
 
-        <img src="" alt="" width="100px" height="100px" id="img_destino">
+        <img src="" width="100px" height="100px" id="img_destino" class="rounded-circle">
 
         <input type="file" name="fotoperfil" id="file_url" onchange="mostrarImagen()">
 

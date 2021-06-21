@@ -15,7 +15,7 @@ if (!isset($_SESSION["login"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos | SYSTEM</title>
+    <title>Ventas | SYSTEM</title>
     <?php require("../../includes/recursos.php") ?>
 
 </head>
@@ -31,12 +31,12 @@ if (!isset($_SESSION["login"])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="productos.php" class="nav-link active">
+                    <a href="../productos/productos.php" class="nav-link text-white">
                         <i class="fas fa-tag bi me-2"></i>Productos
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../ventas/ventas.php" class="nav-link text-white">
+                    <a href="ventas.php" class="nav-link active">
                         <i class="fas fa-shopping-basket bi me-2"></i>Ventas
                     </a>
                 </li>
