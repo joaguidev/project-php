@@ -11,3 +11,7 @@ function mostrarImagen() {
     reader.readAsDataURL(input.files[0]);
   }
 }
+function ConfirmacionEliminar(id) {
+  $("#btnel").click();
+  $("#btn_conf").attr("href", "eliminar.php?id=" + id);
+}
