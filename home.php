@@ -53,13 +53,25 @@ if (!isset($_SESSION["login"])) {
             </ul>
             <div>
                 <a href="perfil.php" class="text-white nav-link">
-                    <img src="https://github.com/mdo.png" width="32" height="32" class="rounded-circle me-2">
+                    <img src="assets/img/user-circle-solid.svg" width="32" height="32" class="rounded-circle me-2">
                     <strong><?php echo $_SESSION["login"]["nombre"] ?></strong>
                 </a>
             </div>
             <a href="logout.php" class="me-5 text-white text-decoration-none fs-6"><i class="fas fa-sign-out-alt ms-2"></i></a>
         </div>
     </nav>
+
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="card shadow " style="width: 40em;">
+            <div class="card-body">
+                <h1 class="card-title text-center">SYSTEM IN PHP AND MYSQL</h1>
+                <h5 class="card-subtitle mb-2 text-center text-muted">Create | Read | Udpate | Delete</h5>
+                <p class="card-subtitle mb-2 text-center text-black-50 fs-6">Versión 1.0</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
 </body>
 
 </html>

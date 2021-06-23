@@ -11,7 +11,12 @@ function mostrarImagen() {
     reader.readAsDataURL(input.files[0]);
   }
 }
-function ConfirmacionEliminar(id) {
-  $("#btnel").click();
-  $("#btn_conf").attr("href", "eliminar.php?id=" + id);
+function ConfirmarEliminarProducto(id) {
+  $("#btn_eliminarproducto").click();
+  $("#yes_eliminarproducto").attr("href", "eliminar.php?id=" + id);
+}
+
+function ConfirmarEliminarCategoria(id) {
+  $("#btn_eliminarcategoria").click();
+  $("#yes_eliminarcategoria").attr("href", "eliminar?id=" + id);
 }

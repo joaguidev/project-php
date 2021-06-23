@@ -6,6 +6,25 @@ if (!isset($_SESSION["login"])) {
     header("Location: index.php");
 }
 
+require("includes/database.php");
+
+$id = $_SESSION["login"]["idusuarios"];
+
+$con = Conexion();
+$result = $con->query("SELECT * FROM usuarios INNER JOIN cargos ON usuarios.idcargos = cargos.idcargos WHERE idusuarios = '$id'");
+$con->close();
+
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+$nombre = $row["nombre"];
+$cargo = $row["nombre_cargo"];
+$user = $row["usuario"];
+$nacimiento = $row["fecha_nacimiento"];
+$genero = $row["genero"];
+$telefono = $row["telefono"];
+$email = $row["email"];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +36,6 @@ if (!isset($_SESSION["login"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pefil | SYSTEM</title>
     <?php require("includes/recursos.php") ?>
-    <script src="includes/app.js"></script>
 </head>
 
 <body>
@@ -53,27 +71,39 @@ if (!isset($_SESSION["login"])) {
             </ul>
             <div>
                 <a href="perfil.php" class="text-white nav-link">
-                    <img src="https://github.com/mdo.png" width="32" height="32" class="rounded-circle me-2">
+                    <img src="assets/img/user-circle-solid.svg" width="32" height="32" class="rounded-circle me-2">
                     <strong><?php echo $_SESSION["login"]["nombre"] ?></strong>
                 </a>
             </div>
-            <a href="../../logout.php" class="me-5 text-white text-decoration-none fs-6"><i class="fas fa-sign-out-alt ms-2"></i></a>
+            <a href="logout.php" class="me-5 text-white text-decoration-none fs-6"><i class="fas fa-sign-out-alt ms-2"></i></a>
         </div>
     </nav>
     <div>
-        <form action="">
-
-            <img src="" width="100px" height="100px" id="img_destino" class="rounded-circle">
-
-            <input type="file" name="fotoperfil" id="file_url" onchange="mostrarImagen()">
-
-            <input type="text" name="Nombre" value="Jostin" placeholder="Tu Nombre">
-
-            <input type="text" name="Apellidos" value="Aguilar" placeholder="Tu Apellido">
-
-            <button type="submit">Guardar</button>
-
-        </form>
+        <div class="container d-flex justify-content-center mt-5">
+            <div class="card shadow-sm" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Perfil de Usuario</h5>
+                    <div class="text-center my-3">
+                        <img src="assets/img/user-circle-solid.svg" width="100px" height="100px" id="img_destino" class="rounded-circle">
+                        <input type="hidden" name="fotoperfil" id="file_url" onchange="mostrarImagen()">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control mb-3" type="text" name="Nombre" value="<?php echo $nombre ?>" placeholder="Nombres">
+                        <input class="form-control mb-3" type="text" name="Nombre" value="<?php echo $user ?>" placeholder="Usuario">
+                        <input class="form-control mb-3" type="text" name="Nombre" value="<?php echo $cargo ?>" disabled>
+                        <div class="d-flex">
+                            <input class="form-control mb-3 me-2" type="text" name="Nombre" value="<?php echo $nacimiento ?>" placeholder="Fecha de Nacimiento">
+                            <input class="form-control mb-3" type="text" name="Nombre" value="<?php echo $genero ?>" placeholder="Género">
+                        </div>
+                        <input class="form-control mb-3" type="text" name="Nombre" value="<?php echo $telefono ?>" placeholder="Teléfono">
+                        <input class="form-control mb-3" type="text" name="Nombre" value="<?php echo $email ?>" placeholder="Correo Electrónico">
+                        <div class="container d-flex justify-content-center">
+                            <input class="btn btn-primary" type="button" name="Nombre" value="Guardar Cambios">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

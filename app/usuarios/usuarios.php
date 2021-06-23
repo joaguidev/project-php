@@ -53,7 +53,7 @@ if (!isset($_SESSION["login"])) {
             </ul>
             <div>
                 <a href="../../perfil.php" class="text-white nav-link">
-                    <img src="https://github.com/mdo.png" width="32" height="32" class="rounded-circle me-2">
+                    <img src="../../assets/img/user-circle-solid.svg" width="32" height="32" class="rounded-circle me-2">
                     <strong><?php echo $_SESSION["login"]["nombre"] ?></strong>
                 </a>
             </div>

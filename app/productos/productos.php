@@ -59,16 +59,24 @@ $con->close();
             </ul>
             <div>
                 <a href="../../perfil.php" class="text-white nav-link">
-                    <img src="https://github.com/mdo.png" width="32" height="32" class="rounded-circle me-2">
+                    <img src="../../assets/img/user-circle-solid.svg" width="32" height="32" class="rounded-circle me-2">
                     <strong><?php echo $_SESSION["login"]["nombre"] ?></strong>
                 </a>
             </div>
             <a href="../../logout.php" class="me-5 text-white text-decoration-none fs-6"><i class="fas fa-sign-out-alt ms-2"></i></a>
         </div>
     </nav>
-    <div class="container mt-5">
-        <a href="agregar.php" class="btn btn-primary">Agregar Producto</a>
-        <a href="../categorias/categorias.php" class="btn btn-success">Ver Categorias</a>
+    <div class="container mt-5 d-flex">
+        <div class="col-md-8">
+            <a href="agregar.php" class="btn btn-primary me-3"><i class="fas fa-plus-circle me-2"></i>Agregar Producto</a>
+            <a href="../categorias/categorias.php" class="btn btn-success"><i class="fas fa-tags me-2"></i>Categorias</a>
+        </div>
+        <div class="col-md-4">
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar Producto" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
     </div>
     <div class="container mt-5">
         <table class="table table-bordered">
@@ -92,8 +100,8 @@ $con->close();
                         <td><?php echo $row["stock"] ?></td>
                         <td><?php echo $row["precio_venta"] ?></td>
                         <td class="text-center">
-                            <a href="editar.php?id=<?php echo $row["idproductos"] ?>"><i class="fas fa-edit text-dark"></i></a>
-                            <a href="#" onclick="ConfirmacionEliminar(<?php echo $row["idproductos"] ?>)"><i class="fas fa-trash ms-3 text-dark"></i></a>
+                            <a href="editar.php?id=<?php echo $row["idproductos"] ?>"><i class="fas fa-edit text-primary"></i></a>
+                            <a href="#" onclick="ConfirmarEliminarProducto(<?php echo $row["idproductos"] ?>)"><i class="fas fa-trash ms-3 text-secondary"></i></a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -101,23 +109,23 @@ $con->close();
         </table>
     </div>
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnel" style="display: none;">
-        Launch demo modal
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn_eliminarproducto" style="display: none;">
+        Eliminar
     </button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">VENTANA DE CONFRMACION</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle text-warning me-2"></i>Advertencia</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ¿Estas seguro de eliminar este producto?
+                    ¿Estás Seguro de Eliminar este Producto?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <a type="button" class="btn btn-primary" id="btn_conf">Confirmar</a>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"><i class="fas fa-times"></i></button>
+                    <a type="button" class="btn btn-success" id="yes_eliminarproducto"><i class="fas fa-check"></i></a>
                 </div>
             </div>
         </div>
